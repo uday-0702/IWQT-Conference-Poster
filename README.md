@@ -3,18 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis of Leakage Suppression in Transmon Qubits under Different DRAG Drives</title>
     <!-- Include MathJax for LaTeX rendering -->
-
-</script>
-    <script type="text/javascript">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            }
-        });
-    </script>
 </head>
 <body>
     <h1>POSTER — ANALYSIS OF LEAKAGE SUPPRESSION IN TRANSMON QUBITS UNDER DIFFERENT DRAG DRIVES</h1>
