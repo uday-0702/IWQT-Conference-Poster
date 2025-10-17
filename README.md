@@ -8,6 +8,14 @@
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+    <script type="text/javascript">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        });
+    </script>
 </head>
 <body>
     <h1>POSTER — ANALYSIS OF LEAKAGE SUPPRESSION IN TRANSMON QUBITS UNDER DIFFERENT DRAG DRIVES</h1>
@@ -21,7 +29,7 @@
     
 <p>This work presents a comparative simulation and analysis of several DRAG-based pulse-shaping techniques that suppress leakage while maintaining fast and high-fidelity single-qubit gates.</p>
 
- <hr>
+<hr>
 
 <h2>METHODS</h2>
     <p>The following drive schemes were simulated and compared within a three-level transmon model for an X-gate implementation:</p>
@@ -36,7 +44,7 @@
 
 <div style="text-align:center;">
         <p>
-            \( H_R = \sum_j \left( \delta_j |j\rangle \langle j| + \frac{I(t)}{2} \sigma_x^{j-1,j} + \frac{Q(t)}{2} \sigma_y^{j-1,j} \right) \)
+            $$ H_R = \sum_j \left( \delta_j |j\rangle \langle j| + \frac{I(t)}{2} \sigma_x^{j-1,j} + \frac{Q(t)}{2} \sigma_y^{j-1,j} \right) $$
         </p>
     </div>
 
@@ -44,7 +52,7 @@
 
 <div style="text-align:center;">
         <p>
-            \( Q(t) = -\beta \frac{dI(t)}{dt} \frac{1}{\alpha} \)
+            $$ Q(t) = -\beta \frac{dI(t)}{dt} \frac{1}{\alpha} $$
         </p>
     </div>
 
@@ -52,10 +60,10 @@
 
 <div style="text-align:center;">
         <p>
-            \( L_1 = \frac{1}{d_1} \text{Tr}\left[ I_2 U_r I_1 U_r^\dagger \right] \)
+            $$ L_1 = \frac{1}{d_1} \text{Tr}\left[ I_2 U_r I_1 U_r^\dagger \right] $$
         </p>
         <p>
-            \( L_2 = 1 - \frac{1}{d_2} \text{Tr}\left[ I_2 U_r I_2 U_r^\dagger \right] \)
+            $$ L_2 = 1 - \frac{1}{d_2} \text{Tr}\left[ I_2 U_r I_2 U_r^\dagger \right] $$
         </p>
     </div>
 
@@ -70,10 +78,10 @@
 
 <div style="text-align:center;">
         <p>
-            \( I(t) = A \left[ \Omega_I(t) + \beta^2 \ddot{\Omega}_I(t) \right] \)
+            $$ I(t) = A \left[ \Omega_I(t) + \beta^2 \ddot{\Omega}_I(t) \right] $$
         </p>
         <p>
-            \( Q(t) = -A \frac{\beta}{\alpha} \left[ \dot{\Omega}_I(t) + \beta^2 \dddot{\Omega}_I(t) \right] \)
+            $$ Q(t) = -A \frac{\beta}{\alpha} \left[ \dot{\Omega}_I(t) + \beta^2 \dddot{\Omega}_I(t) \right] $$
         </p>
     </div>
 
