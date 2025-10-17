@@ -24,17 +24,17 @@ The following drive schemes were simulated and compared within a three-level tra
 4. HD DRAG — Higher Derivative DRAG
 
 The rotating-frame Hamiltonian used for analysis is given by:
-
+$$
 H_R = \( \sum_j ( \delta_j |j\rangle \langle j| + \frac{I(t)}{2}\sigma_x^{j-1,j} + \frac{Q(t)}{2}\sigma_y^{j-1,j} ) \)
-
+$$
 where the quadrature envelope is defined as:
-Q(t) = \( -\beta \frac{dI(t)}{dt} \frac{1}{\alpha} \)
+$$Q(t) = \( -\beta \frac{dI(t)}{dt} \frac{1}{\alpha} \)$$
 
 Leakage and seepage rates (L1 and L2) quantify population loss and recovery between computational and leakage subspaces:
-
+$$
 L1 = \( \frac{1}{d_1} \text{Tr}[ I_2 U_r I_1 U_r^\dagger ] \)
 L2 = \( 1 - \frac{1}{d_2} \text{Tr}[ I_2 U_r I_2 U_r^\dagger ] \)
-
+$$
 ---------------------------------------------------------------------------------------
 KEY FINDINGS
 ---------------------------------------------------------------------------------------
@@ -47,10 +47,10 @@ KEY FINDINGS
 
 • Higher Derivative Expansion (HD DRAG):
   Incorporates up to second-order derivatives in I(t) and third-order in Q(t), achieving leakage suppression without explicit spectral optimization.
-
+  $$
   I(t) = \( A [ \Omega_I(t) + \beta^2 \ddot{\Omega}_I(t) ] \)
   Q(t) = \( -A \frac{\beta}{\alpha} [ \dot{\Omega}_I(t) + \beta^2 \dddot{\Omega}_I(t) ] \)
-
+  $$
 • Phase Error Sensitivity:
   The average gate fidelity is more sensitive to phase accumulation errors than to leakage itself.
 
