@@ -1,26 +1,33 @@
-# Reducing Leakage of Single-Qubit Gates for Superconducting Quantum Processors
+# Poster — Analysis of Leakage Suppression in Transmon Qubits Under Different DRAG Drives
 
-This repository accompanies the work described in the paper:
+This repository contains the poster presented at the International Workshop on Quantum Technology (IWQT) 2025, focused on the analysis of leakage suppression techniques in multilevel superconducting transmon qubits.
 
-**E. Hyyppä et al., "Reducing Leakage of Single-Qubit Gates for Superconducting Quantum Processors Using Analytical Control Pulse Envelopes", Phys. Rev. Applied 22, 024034 (2024).**
+# Overview
 
----
+Superconducting transmon qubits — the workhorses of modern quantum processors — suffer from low anharmonicity and frequency crowding (|α/2π| in the range of 150–300 MHz), which often leads to spectral overlap of control pulses with higher transitions such as |1⟩ ↔ |2⟩.
+This overlap causes leakage errors, which are a major limitation in achieving high-fidelity quantum gates.
 
-## Overview
+This work presents a comparative simulation and analysis of several DRAG-based pulse-shaping techniques that suppress leakage while maintaining fast and high-fidelity single-qubit gates.
 
-This project focuses on reducing leakage errors in single-qubit gate operations on superconducting quantum processors by using analytically optimized control pulse envelopes.
+# Methods
 
----
+The following drive schemes were simulated and compared within a three-level transmon model for an X-gate implementation:
+Standard DRAG
+Fifth-Order DRAG (with time-dependent detuning)
+FAST DRAG — Fourier Ansatz Spectrum Tuning
+HD DRAG — Higher Derivative DRAG
 
-## Contents
+The rotating-frame Hamiltonian used for analysis is given by:
 
-- **Code:** Implementation of control pulse optimization techniques.
-- **Simulations:** Scripts to simulate the effects of the pulses on qubit states.
-- **Data:** Experimental or simulation results validating the method.
+HR = Σj [ δj |j⟩⟨j| + (I(t)/2)σx(j−1,j) + (Q(t)/2)σy(j−1,j) ]
 
----
+where the quadrature envelope is defined as:
+Q(t) = −β (dI(t)/dt) / α
 
-## Setup Instructions
+Leakage and seepage rates (L1 and L2) quantify population loss and recovery between computational and leakage subspaces:
+
+L1 = (1/d1) Tr[I2 Ur I1 Ur†]
+L2 = 1 − (1/d2) Tr[I2 Ur I2 Ur†]
 
 1. Clone the repository:
    ```bash
