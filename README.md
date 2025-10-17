@@ -1,115 +1,142 @@
-POSTER — ANALYSIS OF LEAKAGE SUPPRESSION IN TRANSMON QUBITS UNDER DIFFERENT DRAG DRIVES
-=======================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis of Leakage Suppression in Transmon Qubits under Different DRAG Drives</title>
+    <!-- Include MathJax for LaTeX rendering -->
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <h1>POSTER — ANALYSIS OF LEAKAGE SUPPRESSION IN TRANSMON QUBITS UNDER DIFFERENT DRAG DRIVES</h1>
 
-This repository contains the poster presented at the International Workshop on Quantum Technology (IWQT) 2025, focused on the analysis of leakage suppression techniques in multilevel superconducting transmon qubits.
+    <p>This repository contains the poster presented at the International Workshop on Quantum Technology (IWQT) 2025, focused on the analysis of leakage suppression techniques in multilevel superconducting transmon qubits.</p>
 
----------------------------------------------------------------------------------------
-OVERVIEW
----------------------------------------------------------------------------------------
+    <hr>
 
-Superconducting transmon qubits — the workhorses of modern quantum processors — suffer from low anharmonicity and frequency crowding (|α/2π| ∈ [150, 300] MHz), which often leads to spectral overlap of control pulses with higher transitions such as |1⟩ ↔ |2⟩.
-This overlap causes leakage errors, which are a major limitation in achieving high-fidelity quantum gates.
+    <h2>OVERVIEW</h2>
+    <p>Superconducting transmon qubits — the workhorses of modern quantum processors — suffer from low anharmonicity and frequency crowding (\(|\alpha / 2\pi| \in [150, 300] \, \text{MHz}\)), which often leads to spectral overlap of control pulses with higher transitions such as \(|1\rangle \leftrightarrow |2\rangle\). This overlap causes leakage errors, which are a major limitation in achieving high-fidelity quantum gates.</p>
+    
+    <p>This work presents a comparative simulation and analysis of several DRAG-based pulse-shaping techniques that suppress leakage while maintaining fast and high-fidelity single-qubit gates.</p>
 
-This work presents a comparative simulation and analysis of several DRAG-based pulse-shaping techniques that suppress leakage while maintaining fast and high-fidelity single-qubit gates.
+    <hr>
 
----------------------------------------------------------------------------------------
-METHODS
----------------------------------------------------------------------------------------
+    <h2>METHODS</h2>
+    <p>The following drive schemes were simulated and compared within a three-level transmon model for an X-gate implementation:</p>
+    <ul>
+        <li>Standard DRAG</li>
+        <li>Fifth-Order DRAG (with time-dependent detuning)</li>
+        <li>FAST DRAG — Fourier Ansatz Spectrum Tuning</li>
+        <li>HD DRAG — Higher Derivative DRAG</li>
+    </ul>
 
-The following drive schemes were simulated and compared within a three-level transmon model for an X-gate implementation:
+    <p>The rotating-frame Hamiltonian used for analysis is given by:</p>
 
-1. Standard DRAG
-2. Fifth-Order DRAG (with time-dependent detuning)
-3. FAST DRAG — Fourier Ansatz Spectrum Tuning
-4. HD DRAG — Higher Derivative DRAG
+    <div style="text-align:center;">
+        <p>
+            \( H_R = \sum_j \left( \delta_j |j\rangle \langle j| + \frac{I(t)}{2} \sigma_x^{j-1,j} + \frac{Q(t)}{2} \sigma_y^{j-1,j} \right) \)
+        </p>
+    </div>
 
-The rotating-frame Hamiltonian used for analysis is given by:
-$$
-H_R = \( \sum_j ( \delta_j |j\rangle \langle j| + \frac{I(t)}{2}\sigma_x^{j-1,j} + \frac{Q(t)}{2}\sigma_y^{j-1,j} ) \)
-$$
-where the quadrature envelope is defined as:
-$$Q(t) = \( -\beta \frac{dI(t)}{dt} \frac{1}{\alpha} \)$$
+    <p>where the quadrature envelope is defined as:</p>
 
-Leakage and seepage rates (L1 and L2) quantify population loss and recovery between computational and leakage subspaces:
-$$
-L1 = \( \frac{1}{d_1} \text{Tr}[ I_2 U_r I_1 U_r^\dagger ] \)
-L2 = \( 1 - \frac{1}{d_2} \text{Tr}[ I_2 U_r I_2 U_r^\dagger ] \)
-$$
----------------------------------------------------------------------------------------
-KEY FINDINGS
----------------------------------------------------------------------------------------
+    <div style="text-align:center;">
+        <p>
+            \( Q(t) = -\beta \frac{dI(t)}{dt} \frac{1}{\alpha} \)
+        </p>
+    </div>
 
-• Leakage Suppression:
-  Both FAST DRAG and HD DRAG significantly reduce leakage around the qubit anharmonic frequency (\( \alpha / 2\pi = -212~\mathrm{MHz} \)).
+    <p>Leakage and seepage rates (\(L_1\) and \(L_2\)) quantify population loss and recovery between computational and leakage subspaces:</p>
 
-• Spectral Optimization (FAST DRAG):
-  Provides enhanced suppression bandwidth and tunable spectral control using Fourier coefficients (\( \{A_n\} \)).
+    <div style="text-align:center;">
+        <p>
+            \( L_1 = \frac{1}{d_1} \text{Tr}\left[ I_2 U_r I_1 U_r^\dagger \right] \)
+        </p>
+        <p>
+            \( L_2 = 1 - \frac{1}{d_2} \text{Tr}\left[ I_2 U_r I_2 U_r^\dagger \right] \)
+        </p>
+    </div>
 
-• Higher Derivative Expansion (HD DRAG):
-  Incorporates up to second-order derivatives in I(t) and third-order in Q(t), achieving leakage suppression without explicit spectral optimization.
-  $$
-  I(t) = \( A [ \Omega_I(t) + \beta^2 \ddot{\Omega}_I(t) ] \)
-  Q(t) = \( -A \frac{\beta}{\alpha} [ \dot{\Omega}_I(t) + \beta^2 \dddot{\Omega}_I(t) ] \)
-  $$
-• Phase Error Sensitivity:
-  The average gate fidelity is more sensitive to phase accumulation errors than to leakage itself.
+    <hr>
 
-• Bandwidth Control:
-  FAST DRAG exhibits the widest suppression bandwidth, providing superior control for multilevel systems.
+    <h2>KEY FINDINGS</h2>
+    <ul>
+        <li><strong>Leakage Suppression:</strong> Both <strong>FAST DRAG</strong> and <strong>HD DRAG</strong> significantly reduce leakage around the qubit anharmonic frequency (\( \alpha / 2\pi = -212~\mathrm{MHz} \)).</li>
+        <li><strong>Spectral Optimization (FAST DRAG):</strong> Provides enhanced suppression bandwidth and tunable spectral control using Fourier coefficients (\( \{A_n\} \)).</li>
+        <li><strong>Higher Derivative Expansion (HD DRAG):</strong> Incorporates up to second-order derivatives in \(I(t)\) and third-order in \(Q(t)\), achieving leakage suppression without explicit spectral optimization.</li>
+    </ul>
 
----------------------------------------------------------------------------------------
-COLLABORATION
----------------------------------------------------------------------------------------
+    <div style="text-align:center;">
+        <p>
+            \( I(t) = A \left[ \Omega_I(t) + \beta^2 \ddot{\Omega}_I(t) \right] \)
+        </p>
+        <p>
+            \( Q(t) = -A \frac{\beta}{\alpha} \left[ \dot{\Omega}_I(t) + \beta^2 \dddot{\Omega}_I(t) \right] \)
+        </p>
+    </div>
 
-This research is a collaborative effort between:
+    <ul>
+        <li><strong>Phase Error Sensitivity:</strong> The average gate fidelity is more sensitive to phase accumulation errors than to leakage itself.</li>
+        <li><strong>Bandwidth Control:</strong> <strong>FAST DRAG</strong> exhibits the widest suppression bandwidth, providing superior control for multilevel systems.</li>
+    </ul>
 
-- Department of Physics, Indian Institute of Technology (BHU), Varanasi, India
-- Nuclear Physics Division, Bhabha Atomic Research Centre (BARC), Mumbai, India
+    <hr>
 
-Contributors:
-- Uday Mathur — IIT (BHU)
-- Dr. Sandeep Joshi — BARC
-- Dr. Prashant Shukla — BARC
+    <h2>COLLABORATION</h2>
+    <p>This research is a collaborative effort between:</p>
+    <ul>
+        <li><strong>Department of Physics, Indian Institute of Technology (BHU), Varanasi, India</strong></li>
+        <li><strong>Nuclear Physics Division, Bhabha Atomic Research Centre (BARC), Mumbai, India</strong></li>
+    </ul>
 
----------------------------------------------------------------------------------------
-TAKEAWAYS
----------------------------------------------------------------------------------------
+    <p><strong>Contributors:</strong></p>
+    <ul>
+        <li>Uday Mathur — IIT (BHU)</li>
+        <li>Dr. Sandeep Joshi — BARC</li>
+        <li>Dr. Prashant Shukla — BARC</li>
+    </ul>
 
-- FAST DRAG provides flexible and high-fidelity control with enhanced spectral suppression.
-- HD DRAG offers simplicity and low calibration overhead while maintaining robustness.
-- Gate fidelity is limited primarily by phase errors rather than leakage errors.
+    <hr>
 
----------------------------------------------------------------------------------------
-SETUP INSTRUCTIONS
----------------------------------------------------------------------------------------
+    <h2>TAKEAWAYS</h2>
+    <ul>
+        <li><strong>FAST DRAG:</strong> Provides flexible and high-fidelity control with enhanced spectral suppression.</li>
+        <li><strong>HD DRAG:</strong> Offers simplicity and low calibration overhead while maintaining robustness.</li>
+        <li>Gate fidelity is limited primarily by phase errors rather than leakage errors.</li>
+    </ul>
 
-1. Clone the repository:
-   git clone https://github.com/uday-0702/IWQT-Conference-Poster.git
-   cd IWQT-Conference-Poster
+    <hr>
 
-2. Open the poster file:
-   The poster is available as "IWQT-poster-Uday-Mathur.pdf".
-   You can view it using any standard PDF viewer.
+    <h2>SETUP INSTRUCTIONS</h2>
+    <ol>
+        <li>Clone the repository:
+            <pre><code>git clone https://github.com/uday-0702/IWQT-Conference-Poster.git
+cd IWQT-Conference-Poster</code></pre>
+        </li>
+        <li>Open the poster file:
+            <p>The poster is available as "<strong>IWQT-poster-Uday-Mathur.pdf</strong>". You can view it using any standard PDF viewer.</p>
+        </li>
+    </ol>
 
----------------------------------------------------------------------------------------
-CONTACT
----------------------------------------------------------------------------------------
+    <hr>
 
-Uday Mathur — uday.mathur.cd.phy22@itbhu.ac.in
-Prashant Shukla — pshuklabarc@gmail.com
+    <h2>CONTACT</h2>
+    <ul>
+        <li><strong>Uday Mathur</strong> — uday.mathur.cd.phy22@itbhu.ac.in</li>
+        <li><strong>Prashant Shukla</strong> — pshuklabarc@gmail.com</li>
+    </ul>
 
----------------------------------------------------------------------------------------
-REFERENCE
----------------------------------------------------------------------------------------
+    <hr>
 
-[1] E. Hyyppä et al.,
-“Reducing Leakage of Single-Qubit Gates for Superconducting Quantum Processors Using Analytical Control Pulse Envelopes,”
-Physical Review Applied, Vol. 22, 024034 (2024).
+    <h2>REFERENCE</h2>
+    <p>[1] E. Hyyppä et al., “Reducing Leakage of Single-Qubit Gates for Superconducting Quantum Processors Using Analytical Control Pulse Envelopes,” <i>Physical Review Applied</i>, Vol. 22, 024034 (2024).</p>
 
----------------------------------------------------------------------------------------
-CITATION
----------------------------------------------------------------------------------------
+    <hr>
 
+    <h2>CITATION</h2>
+    <pre><code>
 @article{fast_drag_2024,
   author  = {E. Hyyppä and others},
   title   = {Reducing Leakage of Single-Qubit Gates for Superconducting Quantum Processors Using Analytical Control Pulse Envelopes},
@@ -118,10 +145,13 @@ CITATION
   volume  = {22},
   pages   = {024034},
 }
+</code></pre>
 
----------------------------------------------------------------------------------------
-PRESENTATION DETAILS
----------------------------------------------------------------------------------------
+    <hr>
 
-Presented at the International Workshop on Quantum Technology (IWQT) 2025.
-In collaboration with the Bhabha Atomic Research Centre (BARC) and the Indian Institute of Technology (BHU), Varanasi.
+    <h2>PRESENTATION DETAILS</h2>
+    <p>Presented at the <strong>International Workshop on Quantum Technology (IWQT) 2025</strong>.</p>
+    <p>In collaboration with the <strong>Bhabha Atomic Research Centre (BARC)</strong> and the <strong>Indian Institute of Technology (BHU), Varanasi</strong>.</p>
+
+</body>
+</html>
