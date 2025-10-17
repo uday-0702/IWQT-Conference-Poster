@@ -13,7 +13,7 @@
 <hr>
 
 <h2>OVERVIEW</h2>
-<p>Superconducting transmon qubits — the workhorses of modern quantum processors — suffer from low anharmonicity and frequency crowding <p>$$\left| \frac{\alpha}{2\pi} \right| \in [150, 300] \text{MHz}$$<\p>, which often leads to spectral overlap of control pulses with higher transitions such as <p>$|1\rangle \leftrightarrow |2\rangle$$<\p>. This overlap causes leakage errors, which are a major limitation in achieving high-fidelity quantum gates.</p>
+<p>Superconducting transmon qubits — the workhorses of modern quantum processors — suffer from low anharmonicity and frequency crowding $$\left| \frac{\alpha}{2\pi} \right| \in [150, 300] \text{MHz}$$, which often leads to spectral overlap of control pulses with higher transitions such as <p>$|1\rangle \leftrightarrow |2\rangle$$<\p>. This overlap causes leakage errors, which are a major limitation in achieving high-fidelity quantum gates.</p>
 
 <p>This work presents a comparative simulation and analysis of several DRAG-based pulse-shaping techniques that suppress leakage while maintaining fast and high-fidelity single-qubit gates.</p>
 
